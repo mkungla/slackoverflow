@@ -1,23 +1,29 @@
-# Binaries for programs and plugins
-*.exe
+################################################################################
+# FILES to ignore
+################################################################################
+# Files to ignore
+.*.swp
+.DS_Store
 *.dll
-*.so
 *.dylib
-
+*.exe
+*.exe~
+*.orig
+*.out
+*.so
 # Test binary, build with `go test -c`
 *.test
 
-# Output of the go coverage tool, specifically when used with LiteIDE
-*.out
+################################################################################
+# DIRECTORIES to ignore
+################################################################################
+# repository is place for source code not for binaries if you need to include
+# binaries in repository then consider appropriate values .gitattributes
+**/[Bb]in/*
+**/[Tt]mp/*
+**/[Vv]endor/*
 
-# Project-local glide cache, RE: https://github.com/Masterminds/glide/issues/736
-.glide/
-
-# Vendor packages
-vendor/*/
-!vendor/.gitkeep
-!vendor/vendor.json
-
-# Build dir
-build/*
-!build/.gitkeep
+################################################################################
+# exception rules
+################################################################################
+!**/*.gitkeep
