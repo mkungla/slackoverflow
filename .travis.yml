@@ -1,0 +1,15 @@
+language: go
+# Go Versions
+go:
+  - 1.9
+  - master
+# notifications
+notifications:
+  email: false
+# Jobs
+allow_failures:
+  - go: master
+
+script:
+  - go get github.com/mattn/goveralls
+  - goveralls -service=travis-ci
