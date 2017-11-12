@@ -32,8 +32,3 @@
 *.jpg binary
 *.data binary
 *.so binary
-
-# Git attributes to ignore selection of files and directories
-# when publishing any of releases release.
-
-vendor export-ignore
