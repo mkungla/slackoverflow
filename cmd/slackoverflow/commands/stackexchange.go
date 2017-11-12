@@ -187,17 +187,7 @@ func getNewQuestions(w *cli.Worker, so *internal.SlackOverflow) {
 				w.Log.Infof("Url:      %s", q.ShareLink)
 
 				if debbuging {
-					newq := internal.NewTable("Question ID", "Time", "Answers", "Comments", "Score", "Views", "Username")
-					newq.AddRow(
-						q.QID,
-						time.Unix(q.CreationDate, 0).UTC().Format("15:04:05 Mon Jan _2 2006"),
-						q.AnswerCount,
-						q.CommentCount,
-						q.Score,
-						q.ViewCount,
-						q.Owner.DisplayName,
-					)
-					newq.Print()
+					printQuestion(q)
 				}
 				// Skip sync if there are locally no questions
 				if empty {
@@ -270,17 +260,7 @@ func updateQuestions(w *cli.Worker, so *internal.SlackOverflow) {
 				w.Log.Infof("Question: %s", q.Title)
 				w.Log.Infof("Url:      %s", q.ShareLink)
 				if debbuging {
-					newq := internal.NewTable("Question ID", "Time", "Answers", "Comments", "Score", "Views", "Username")
-					newq.AddRow(
-						q.QID,
-						time.Unix(q.CreationDate, 0).UTC().Format("15:04:05 Mon Jan _2 2006"),
-						q.AnswerCount,
-						q.CommentCount,
-						q.Score,
-						q.ViewCount,
-						q.Owner.DisplayName,
-					)
-					newq.Print()
+					printQuestion(q)
 				}
 
 				so.SyncQuestion(w, q)
@@ -359,4 +339,18 @@ func startWatching(w *cli.Worker, so *internal.SlackOverflow) {
 		so.StackExchange.GetQuotaRemaining(),
 		so.StackExchange.GetQuotaMax(),
 	)
+}
+
+func printQuestion(q internal.QuestionObj) {
+	newq := internal.NewTable("Question ID", "Time", "Answers", "Comments", "Score", "Views", "Username")
+	newq.AddRow(
+		q.QID,
+		time.Unix(q.CreationDate, 0).UTC().Format("15:04:05 Mon Jan _2 2006"),
+		q.AnswerCount,
+		q.CommentCount,
+		q.Score,
+		q.ViewCount,
+		q.Owner.DisplayName,
+	)
+	newq.Print()
 }
