@@ -180,7 +180,7 @@ func getNewQuestions(w *cli.Worker, so *internal.SlackOverflow) {
 	for fetchQuestions {
 		w.Log.Debugf("Fetching page %d", searchAdvanced.GetCurrentPageNr())
 		if results, err := searchAdvanced.Get(); results {
-			// Questions recieved
+			// Questions received
 			for _, q := range searchAdvanced.Result.Items {
 
 				w.Log.Infof("Question: %s", q.Title)
@@ -264,7 +264,7 @@ func updateQuestions(w *cli.Worker, so *internal.SlackOverflow) {
 	for fetchQuestions {
 		w.Log.Debugf("Fetching page %d", updateQuestions.GetCurrentPageNr())
 		if results, err := updateQuestions.Get(questionIds); results {
-			// Questions recieved
+			// Questions received
 			for _, q := range updateQuestions.Result.Items {
 
 				w.Log.Infof("Question: %s", q.Title)
@@ -319,7 +319,7 @@ func startWatching(w *cli.Worker, so *internal.SlackOverflow) {
 	for fetchQuestions {
 		w.Log.Debugf("Fetching page %d", searchAdvanced.GetCurrentPageNr())
 		if results, err := searchAdvanced.Get(); results {
-			// Questions recieved
+			// Questions received
 			for _, q := range searchAdvanced.Result.Items {
 				fromDate = time.Unix(q.CreationDate, 0).UTC()
 				w.Log.Linef("Question: %s", q.Title)

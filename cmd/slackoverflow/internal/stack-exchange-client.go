@@ -378,7 +378,7 @@ func (p *Parameters) Set(param string, value interface{}) {
 	p.applied[param] = Parameter{param, value, ""}
 }
 
-// ValueOf returns value of given paramter if it is set
+// ValueOf returns value of given parameter if it is set
 func (p *Parameters) ValueOf(param string) string {
 	if val, ok := p.applied[param]; ok {
 		return val.String()

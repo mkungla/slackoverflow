@@ -158,7 +158,7 @@ func (d *Database) SyncStackExchangeUserShallowUser(user ShallowUserObj) (msg st
 	return msg, err
 }
 
-// SyncStackExchangeQuestion create or update question recieved from defined site
+// SyncStackExchangeQuestion create or update question received from defined site
 func (d *Database) SyncStackExchangeQuestion(q QuestionObj, site string) (msg string, err error) {
 
 	err = d.open()
@@ -563,7 +563,7 @@ func (d *Database) StackExchangeQuestionTrackedIds(qToWatch int) (ids string, co
 		if err != nil {
 			log.Fatal(err)
 		}
-		// in case of only one question asign that to idsMap
+		// in case of only one question assign that to idsMap
 		ids = QID
 		idsMap = append(idsMap, QID)
 		count++
@@ -638,7 +638,7 @@ func (d *Database) StackExchangeQuestionsTracked(qToWatch int) (questions []Stac
 		if err != nil {
 			log.Fatal(err)
 		}
-		// in case of only one question asign that to idsMap
+		// in case of only one question assign that to idsMap
 		questions = append(questions, q)
 		count++
 	}
