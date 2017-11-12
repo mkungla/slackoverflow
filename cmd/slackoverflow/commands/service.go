@@ -14,11 +14,7 @@ func Service(so *internal.SlackOverflow) cli.Command {
 	cmd := cli.NewCommand("service")
 	cmd.SetShortDesc("SlackOverflow daemon commands.")
 	cmd.Do(func(w *cli.Worker) {
-		if err := so.Session(w); err != nil {
-			w.Fail(err.Error())
-			return
-		}
-		//
+		w.Fail("cmd not implemented.")
 	})
 	return cmd
 }
